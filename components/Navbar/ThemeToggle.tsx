@@ -24,7 +24,7 @@ export default function ThemeToggle() {
   };
 
   return (
-    <Button variant="outline" className="flex-center py-5 bg-transparent" onClick={changeTheme}>
+    <Button variant="outline" className="flex-center py-5 bg-transparent hover:bg-secondary/20" onClick={changeTheme}>
       <HiOutlineMoon className="size-6 dark:hidden" />
       <HiOutlineSun className="size-6 hidden dark:block" />
     </Button>
