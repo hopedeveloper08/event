@@ -110,3 +110,20 @@ function generateSlug(title: string): string {
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
 }
+
+
+export async function GET(request: Request) {
+  try {
+    await connectDB();
+    const events = await Event.find().sort({ createdAt: -1 });
+    return NextResponse.json(events, { status: 200 });
+  } catch (error) {
+    return NextResponse.json(
+      {
+        error: error, 
+      },
+      { status: 500 }
+    );
+  }
+
+}
