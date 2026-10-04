@@ -13,7 +13,7 @@ export default async function Events() {
   const response = await fetch(`${BASE_URL}/api/events`);
   const events: IEvent[] = await response.json();
 
-  const items = events?.slice(0, 10) ?? [];
+  const items = events?.slice(0, 10).reverse() ?? [];
 
   if (!items.length) return null;
 

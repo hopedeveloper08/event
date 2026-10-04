@@ -26,17 +26,17 @@ export default function Event({
   date,
 }: EventProps) {
   return (
-    <Card className="pt-0 overflow-visible">
+    <Card className="pt-0 shrink-0">
       <Image
         src={image}
         alt="event"
         width={400}
         height={200}
-        className="relative z-20 aspect-video w-full object-cover brightness-80 dark:brightness-60"
+        className="relative z-20 aspect-video object-cover brightness-80 dark:brightness-60"
       />
-      <CardHeader className="w-50 md:w-100">
+      <CardHeader className="grow">
         <CardTitle className="line-clamp-2 md:line-clamp-1">{title}</CardTitle>
-        <CardDescription className="line-clamp-2 md:line-clamp-3">
+        <CardDescription className="line-clamp-2 md:line-clamp-3 text-justify">
           {overview}
         </CardDescription>
         <Badge variant="secondary">{date}</Badge>
