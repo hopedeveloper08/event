@@ -127,9 +127,10 @@ EventSchema.pre('save', async function () {
 
 function generateSlug(title: string): string {
   return title
+    .normalize("NFKC")
     .toLowerCase()
     .trim()
-    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/[^\p{L}\p{N}\s-]/gu, "")
     .replace(/\s+/g, "-")
     .replace(/-+/g, "-")
     .replace(/^-|-$/g, "");
