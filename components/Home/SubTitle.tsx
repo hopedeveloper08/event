@@ -3,7 +3,7 @@ export default function SubTitle() {
     <p
       className="
         text-center
-        mt-4 md:mt-8
+        mt-4
         text-xl md:text-2xl
         italic
     "

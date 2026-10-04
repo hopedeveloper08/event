@@ -157,4 +157,15 @@
       transform: translateY(20);
     }
   }
+  
+  --animate-marquee: marquee 100s linear infinite;
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(50%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
 }

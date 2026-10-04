@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function ExploreButton() {
   return (
-    <div className="mt-8 md:mt-12 flex-center">
+    <div className="mt-8 flex-center">
       <Link href="/events">
         <Button
           variant="default"
