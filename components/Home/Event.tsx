@@ -28,7 +28,7 @@ export default function Event({
   return (
     <Card className="pt-0 shrink-0">
       <Image
-        src={image}
+        src={`/event${image}`}
         alt="event"
         width={400}
         height={200}

@@ -14,9 +14,11 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { IEvent } from "@/database/event.model";
+import Link from "next/link";
+// import { IEvent } from "@/database/event.model";
 
-export default function EventDetails({ event }: { event: IEvent }) {
+// export default function EventDetails({ event }: { event: IEvent }) {
+export default function EventDetails({ event }: { event: any }) {
   if (!event) {
     return (
       <main
@@ -37,10 +39,10 @@ export default function EventDetails({ event }: { event: IEvent }) {
             </div>
 
             <Button variant="outline">
-              <a href="/events">
+              <Link href="/events">
                 بازگشت به رویدادها
                 <ArrowLeft className="mr-2 size-4" />
-              </a>
+              </Link>
             </Button>
           </CardContent>
         </Card>
@@ -73,7 +75,7 @@ export default function EventDetails({ event }: { event: IEvent }) {
             {/* Image */}
             <div className="relative aspect-16/10 overflow-hidden rounded-3xl bg-muted shadow-sm">
               <Image
-                src={event.image}
+                src={`/event${event.image}`}
                 alt={event.title}
                 className="size-full object-cover"
                 width={800}
@@ -142,7 +144,12 @@ export default function EventDetails({ event }: { event: IEvent }) {
                 </Button>
 
                 <Button size="lg" variant="outline" className="rounded-xl">
-                  <a href="#agenda" className="flex items-center" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="#agenda"
+                    className="flex items-center"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     مشاهده برنامه
                     <ArrowLeft className="mr-2 size-4" />
                   </a>

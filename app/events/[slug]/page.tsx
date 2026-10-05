@@ -1,25 +1,31 @@
 import EventDetails from "@/components/EventDetails/EventDetails";
-import Event from "@/database/event.model";
-import { cacheLife } from "next/cache";
-import { Suspense } from "react";
+import data from "../../../database/fake-data.json";
+import { notFound } from "next/navigation";
 
-export default async function page({
+export function generateStaticParams() {
+  return data.map((event) => ({
+    slug: event.slug,
+  }));
+}
+
+export default async function Page({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  "use cache";
-  cacheLife("hours");
-
   const { slug } = await params;
   const decodedSlug = decodeURIComponent(slug);
-  const event = await Event.findOne({ slug: decodedSlug });
+
+  const event = data.find((item) => item.slug === decodedSlug);
+
+  if (!event) {
+    notFound();
+  }
 
   return (
     <main>
-      <Suspense fallback={<div>Loading...</div>}>
-        <EventDetails event={event} />
-      </Suspense>
+      <EventDetails event={event} />
     </main>
   );
 }
+

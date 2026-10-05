@@ -1,11 +1,8 @@
 import type { Metadata } from "next";
 import { Vazirmatn, Inter } from "next/font/google";
 import "./globals.css";
-import { cn } from "@/lib/utils";
 import LightRays from "@/components/LightRays";
 import Navbar from "@/components/Navbar/Navbar";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const vazirmatn = Vazirmatn({
   variable: "--font-vazirmatn",

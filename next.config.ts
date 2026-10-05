@@ -1,8 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  cacheComponents: true,
   reactCompiler: true,
+  output: "export",
+  basePath: '/event',
+
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
